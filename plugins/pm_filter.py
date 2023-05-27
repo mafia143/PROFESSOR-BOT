@@ -19,12 +19,12 @@ PM_SPELL_CHECK = {}
 
 @Client.on_message(filters.private & filters.text & filters.chat(AUTH_USERS) if AUTH_USERS else filters.text & filters.private)
 async def auto_pm_fill(b, m):
-    if PMFILTER.strip().lower() in ["true", "yes", "1", "enable", "y"]:       
+    if PMFILTER.strip().lower() in ["true", "yes", "1", "enable", "y"]:
         if G_FILTER:
             kd = await global_filters(b, m)
             if kd == False:
                 await pm_AutoFilter(b, m)
-        else:      
+        else:
             await pm_AutoFilter(b, m)
     elif PMFILTER.strip().lower() in ["false", "no", "0", "disable", "n"]:
         return 
@@ -115,7 +115,7 @@ async def pm_spoll_tester(bot, query):
         await k.delete()
 
 
-async def pm_AutoFilter(client, msg, pmspoll=False):    
+async def pm_AutoFilter(client, msg, pmspoll=False):  
     if not pmspoll:
         message = msg   
         if message.text.startswith("/"): return  # ignore commands
