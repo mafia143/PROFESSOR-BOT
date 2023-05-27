@@ -101,8 +101,10 @@ async def pm_spoll_tester(bot, query):
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = PM_SPELL_CHECK.get(query.message.reply_to_message.id)
-    if not movies:
-        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)
+    if not movies: """if not movies:
+        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)"""
+        return await query.answer("You are clicking on an old button which is expired.", show_alert=True) """if not movies:
+        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)"""
     movie = movies[(int(movie_))]
     await query.answer('Checking for Movie in database...')
     files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
